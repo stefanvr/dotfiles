@@ -1,0 +1,22 @@
+VIM_BASEDIR = "~/.vim"
+VIM_AUTOLOAD = VIM_BASEDIR + "/autoload" 
+TEMP_FOLDER = "/tmp/pathogen_download"
+
+task :install_pathogen do
+  system("git clone https://github.com/tpope/vim-pathogen.git " + TEMP_FOLDER) 
+
+  if not directory_exists?(VIM_BASEDIR)
+    system("mkdir " + VIM_BASEDIR);
+  end
+
+  if not directory_exists?(VIM_AUTOLOAD)
+    system("mkdir " + VIM_AUTOLOAD);
+  end  
+
+  system("cp " + TEMP_FOLDER + "/autoload/* "+ VIM_AUTOLOAD);
+  system("rm -fr " + TEMP_FOLDER);
+end
+
+def directory_exists?(directory)
+  File.directory?(File.expand_path(directory))
+end
