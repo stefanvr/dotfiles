@@ -38,7 +38,10 @@ end
 def plugins
  { 
     #theme 
-    "solarized"     =>"https://github.com/altercation/vim-colors-solarized.git"
+    "solarized"     =>"https://github.com/altercation/vim-colors-solarized.git",
+
+    #languages
+    "vim-markdown"  => "http://github.com/plasticboy/vim-markdown"
  }
 end
 
