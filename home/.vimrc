@@ -45,6 +45,7 @@ colorscheme solarized
 " -------------------------------------
 " Formatting
 " -------------------------------------
+set encoding=utf-8
 set nowrap
 set synmaxcol=200                       " Do not highlight long lines
 " Tabs
@@ -59,11 +60,15 @@ set nojoinspaces
 " Line number column
 set number
 set numberwidth=4
+" Mark tabs and with spaces
+set list
+set listchars=tab:\▸\ ,trail:·,eol:¬
+nmap <leader>l :set list!<CR> " Shortcut to rapidly toggle `set list`¬
 
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
+   " Preparation: save last search, and cursor position.
    let _s=@/
    let l = line(".")
    let c = col(".")
@@ -75,14 +80,16 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 if has('autocmd')
+  filetype plugin indent on
+
   " Basic text files
   autocmd FileType text,markdown setlocal wrap linebreak nolist textwidth=80
-  
+
   " Web related
   autocmd BufNewFile,BufRead *.json set ft=javascript
   autocmd BufWritePre,FileWritePre *.html,*.css,*.js,*.coffee call StripTrailingWhitespace()
 
-  autocmd FileType html,xhtml setlocal wrap linebreak nolist 
+  autocmd FileType html,xhtml setlocal wrap linebreak nolist
 
   " Ruby related
   autocmd BufNewFile,BufRead {Gemfile,Guardfile,Capfile,Rakefile,Thorfile,config.ru,Vagrantfile,*.prawn} set ft=ruby
@@ -91,11 +98,11 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *_spec.rb set ft=rspec.ruby
 
   autocmd BufWritePre,FileWritePre *.rake,*.haml,*.rb,*.erb,*.scss,*.css call StripTrailingWhitespace()
-  
+
   autocmd Filetype coffee,ruby,yaml,rake,rb,ru setlocal ts=2 sw=2 expandtab
   autocmd FileType html,xhtml,eruby setlocal wrap linebreak nolist
 
   " Misc structured files
   autocmd BufWritePre,FileWritePre *.xml call StripTrailingWhitespace()
-    
+
 endif
