@@ -5,7 +5,7 @@ call pathogen#infect()  " Enable module loading from bundle folder [vim\bundle\<
 " -------------------------------------
 " General settings
 " -------------------------------------
-" keep file system clean
+" Keep file system clean
 set nobackup                             
 set nowritebackup                       " Do not write backup file under certain edge cases
 set noswapfile                          
@@ -33,18 +33,20 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
 
-
 " -------------------------------------
 " Formatting
 " -------------------------------------
 set nowrap
 set synmaxcol=200                       " Do not highlight long lines
+" Tabs
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" Auto space/tab insert behaviour
 set autoindent
 set smartindent
 set nojoinspaces
+" Line number column
 set number
 set numberwidth=4
