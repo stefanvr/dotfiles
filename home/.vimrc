@@ -74,9 +74,28 @@ function! <SID>StripTrailingWhitespaces()
    call cursor(l, c)
 endfunction
 
-
-
 if has('autocmd')
-  autocmd FileType text setlocal wrap linebreak nolist textwidth=80
-  autocmd FileType markdown setlocal wrap linebreak nolist textwidth=80
+  " Basic text files
+  autocmd FileType text,markdown setlocal wrap linebreak nolist textwidth=80
+  
+  " Web related
+  autocmd BufNewFile,BufRead *.json set ft=javascript
+  autocmd BufWritePre,FileWritePre *.html,*.css,*.js,*.coffee call StripTrailingWhitespace()
+
+  autocmd FileType html,xhtml setlocal wrap linebreak nolist 
+
+  " Ruby related
+  autocmd BufNewFile,BufRead {Gemfile,Guardfile,Capfile,Rakefile,Thorfile,config.ru,Vagrantfile,*.prawn} set ft=ruby
+  autocmd BufNewFile,BufRead Gemfile.lock,Procfile set ft=yaml
+  autocmd BufNewFile,BufRead *.json set ft=javascript
+  autocmd BufNewFile,BufRead *_spec.rb set ft=rspec.ruby
+
+  autocmd BufWritePre,FileWritePre *.rake,*.haml,*.rb,*.erb,*.scss,*.css call StripTrailingWhitespace()
+  
+  autocmd Filetype coffee,ruby,yaml,rake,rb,ru setlocal ts=2 sw=2 expandtab
+  autocmd FileType html,xhtml,eruby setlocal wrap linebreak nolist
+
+  " Misc structured files
+  autocmd BufWritePre,FileWritePre *.xml call StripTrailingWhitespace()
+    
 endif
