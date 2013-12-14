@@ -23,6 +23,15 @@ set t_vb=
 set tm=500
 
 " -------------------------------------
+" Searching
+" -------------------------------------
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+
+" -------------------------------------
 " Colors and syntax highlighting
 " -------------------------------------
 set t_Co=256
