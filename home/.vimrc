@@ -5,6 +5,7 @@ call pathogen#infect()  " Enable module loading from bundle folder [vim\bundle\<
 " -------------------------------------
 " General settings
 " -------------------------------------
+let mapleader=","
 " Keep file system clean
 set nobackup
 set nowritebackup                       " Do not write backup file under certain edge cases
