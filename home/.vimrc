@@ -107,3 +107,9 @@ if has('autocmd')
   autocmd BufWritePre,FileWritePre *.xml call StripTrailingWhitespace()
 
 endif
+
+" -------------------------------------
+" Shortcuts
+" -------------------------------------
+nmap <leader>y :.w !pbcopy<CR>
+nmap <leader>p :r !pbpaste<CR> "Paste clipboard content to current line
