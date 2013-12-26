@@ -1,11 +1,12 @@
-set nocompatible        " do not emulate vi
+set nocompatible                        " do not emulate vi
 
-call pathogen#infect()  " Enable module loading from bundle folder [vim\bundle\<plugin name>]
+call pathogen#infect()                  " Enable module loading from bundle folder [vim\bundle\<plugin name>]
 
 " -------------------------------------
 " General settings
 " -------------------------------------
 let mapleader=","
+set backspace=2                         " make backspace work like most other apps
 " Keep file system clean
 set nobackup
 set nowritebackup                       " Do not write backup file under certain edge cases
@@ -43,6 +44,15 @@ let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
 
+" Line number column
+set number
+set numberwidth=4
+nmap <leader>n :set number!<CR>"         " Shortcut to rapidly toggle `set number`
+
+" Status line
+nmap <leader>sh :set laststatus=1<CR>"   " Shortcut to hide status line
+nmap <leader>ss :set laststatus=2<CR>"   " Shortcut to show status line
+
 " -------------------------------------
 " Formatting
 " -------------------------------------
@@ -58,14 +68,11 @@ set expandtab
 set autoindent
 set smartindent
 set nojoinspaces
-" Line number column
-set number
-set numberwidth=4
-" Mark tabs and with spaces
+" Mark tabs and spaces handling
 set list
 set listchars=tab:\▸\ ,trail:·,eol:¬
-nmap <leader>l :set list!<CR> " Shortcut to rapidly toggle `set list`¬
 
+nmap <leader>l :set list!<cr>"          " Shortcut to rapidly toggle `set list`
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
@@ -80,6 +87,9 @@ function! <SID>StripTrailingWhitespaces()
    call cursor(l, c)
 endfunction
 
+" -------------------------------------
+" File type settings
+" -------------------------------------
 if has('autocmd')
   filetype plugin indent on
 
@@ -111,5 +121,5 @@ endif
 " -------------------------------------
 " Shortcuts
 " -------------------------------------
-nmap <leader>y :.w !pbcopy<CR>
-nmap <leader>p :r !pbpaste<CR> "Paste clipboard content to current line
+nmap <leader>c "+y
+nmap <leader>p "+p<CR> "Paste clipboard content to current line
