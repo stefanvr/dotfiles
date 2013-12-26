@@ -1,10 +1,8 @@
-VIM_BASEDIR = File.expand_path("~/.vim")
-VIM_AUTOLOAD = VIM_BASEDIR + "/autoload" 
-TEMP_FOLDER = "/tmp/pathogen_download"
+TE:MP_FOLDER = "/tmp/pathogen_download"
 VIM_BUNDLE =  VIM_BASEDIR + "/bundle"
 
 task :install_pathogen do
-  system("git clone https://github.com/tpope/vim-pathogen.git " + TEMP_FOLDER) 
+  system("git clone https://github.com/tpope/vim-pathogen.git " + TEMP_FOLDER)
 
   if not directory_exists?(VIM_BASEDIR)
     system("mkdir " + VIM_BASEDIR);
@@ -12,7 +10,7 @@ task :install_pathogen do
 
   if not directory_exists?(VIM_AUTOLOAD)
     system("mkdir " + VIM_AUTOLOAD);
-  end  
+  end
 
   system("cp " + TEMP_FOLDER + "/autoload/* "+ VIM_AUTOLOAD);
   system("rm -fr " + TEMP_FOLDER);
@@ -36,12 +34,15 @@ task :list do
 end
 
 def plugins
- { 
-    #theme 
-    "solarized"     =>"https://github.com/altercation/vim-colors-solarized.git",
+ {
+    #theme
+    "solarized"     => "https://github.com/altercation/vim-colors-solarized.git",
 
     #languages
-    "vim-markdown"  => "http://github.com/plasticboy/vim-markdown"
+    "vim-markdown"  => "http://github.com/plasticboy/vim-markdown",
+
+    #productivity
+    "airline"       => "https://github.com/bling/vim-airline"
  }
 end
 
