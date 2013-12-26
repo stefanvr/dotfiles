@@ -13,3 +13,7 @@ setopt prompt_subst
 PROMPT='$(~/.zsh/prompt $?)'
 #
 export SHELL=$(which zsh)
+
+# Load completions for Ruby, Git, etc.
+autoload -Uz compinit
+compinit
