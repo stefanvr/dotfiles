@@ -17,3 +17,7 @@ export SHELL=$(which zsh)
 # Load completions for Ruby, Git, etc.
 autoload -Uz compinit
 compinit
+
+# RVM
+#-------------------------------------------------
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
