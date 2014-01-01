@@ -73,9 +73,9 @@ set list
 set listchars=tab:\▸\ ,trail:·,eol:¬
 
 nmap <leader>l :set list!<cr>"          " Shortcut to rapidly toggle `set list`
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F5> :call StripTrailingWhitespace()<CR>
 
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespace()
    " Preparation: save last search, and cursor position.
    let _s=@/
    let l = line(".")
