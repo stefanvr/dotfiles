@@ -24,8 +24,10 @@ alias gpom='git push origin master'
 alias gf='git fetch'
 alias fom='git fetch origin master'
 
-alias grf='git checkout'
+alias gb='git branch'
+alias gco='git checkout'
 alias gra='git clean -f'
+
 
 alias ga='git commit --amend'
 # Commit pending changes and quote all args as message
