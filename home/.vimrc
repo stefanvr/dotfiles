@@ -94,7 +94,7 @@ if has('autocmd')
   filetype plugin indent on
 
   " Basic text files
-  autocmd FileType text,markdown setlocal wrap linebreak nolist textwidth=80
+  autocmd FileType text,mkd,markdown setlocal wrap linebreak nolist textwidth=80 foldlevel=99
 
   " Web related
   autocmd BufNewFile,BufRead *.json set ft=javascript
