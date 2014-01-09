@@ -32,8 +32,14 @@ alias gra='git clean -f'
 alias ga='git commit --amend'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gca='git commit -va -m'
 # Commit pending changes and quote all args as message
 function gg() {
     git commit -v -a -m "$*"
 }
 
+# vagrant
+# ---------------------------------------------------------------------------------------
+alias vu='vagrant up'
+alias vd='vagrant halt'
+alias vs='vagrant ssh'
