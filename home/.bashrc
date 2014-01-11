@@ -43,3 +43,7 @@ function gg() {
 alias vu='vagrant up'
 alias vd='vagrant halt'
 alias vs='vagrant ssh'
+alias vsc='vagrant ssh-config'
+alias vboxd='vagrant destroy'
+alias vboxa='vagrant box add'
+alias vboxr='vagrant box remove'
