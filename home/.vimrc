@@ -1,12 +1,14 @@
 set nocompatible                        " do not emulate vi
 
 call pathogen#infect()                  " Enable module loading from bundle folder [vim\bundle\<plugin name>]
+call pathogen#helptags()                " Make help from plugins available
 
 " -------------------------------------
 " General settings
 " -------------------------------------
 let mapleader=","
 set backspace=2                         " make backspace work like most other apps
+
 " Keep file system clean
 set nobackup
 set nowritebackup                       " Do not write backup file under certain edge cases
@@ -48,10 +50,14 @@ colorscheme solarized
 set number
 set numberwidth=4
 nmap <leader>n :set number!<CR>"         " Shortcut to rapidly toggle `set number`
+nmap <leader>rn :set rnu!<CR>"           " Shortcut to rapidly toggle between relative and absolute line number
 
 " Status line
 nmap <leader>sh :set laststatus=1<CR>"   " Shortcut to hide status line
 nmap <leader>ss :set laststatus=2<CR>"   " Shortcut to show status line
+let g:airline_powerline_fonts=0
+set laststatus=2
+set statusline=%-2{StatusMode()}     " current editor mode
 
 " -------------------------------------
 " Formatting
@@ -119,7 +125,11 @@ if has('autocmd')
 endif
 
 " -------------------------------------
-" Shortcuts
+" Copy past settings
 " -------------------------------------
+if has('autocmd')
+  autocmd InsertLeave * set nopaste
+endif
 nmap <leader>c "+y
 nmap <leader>p "+p<CR> "Paste clipboard content to current line
+
