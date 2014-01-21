@@ -13,3 +13,18 @@
 [submodule "home/.vim/bundle/vim-ruby"]
 	path = home/.vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "home/.vim/bundle/ruby-bundler"]
+	path = home/.vim/bundle/ruby-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule "home/.vim/bundle/unimpaired"]
+	path = home/.vim/bundle/unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "home/.vim/bundle/vim-repeat"]
+	path = home/.vim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "home/.vim/bundle/matchit"]
+	path = home/.vim/bundle/matchit
+	url = git@github.com:tsaleh/vim-matchit.git
+[submodule "home/.vim/bundle/vim-rspec"]
+	path = home/.vim/bundle/vim-rspec
+	url = git@github.com:thoughtbot/vim-rspec.git
