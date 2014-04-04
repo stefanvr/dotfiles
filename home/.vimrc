@@ -6,7 +6,6 @@ call pathogen#helptags()                " Make help from plugins available
 " -------------------------------------
 " General settings
 " -------------------------------------
-let mapleader=","
 set backspace=2                         " make backspace work like most other apps
 
 " Keep file system clean
@@ -35,6 +34,9 @@ set ignorecase
 set smartcase
 set showmatch
 
+set wildmenu
+set wildmode=longest,full
+set wildignore+=tmp,.bundle,.sass-cache,.git,.svn,.hg,doc,coverage
 " -------------------------------------
 " Colors and syntax highlighting
 " -------------------------------------
@@ -57,7 +59,6 @@ nmap <leader>sh :set laststatus=1<CR>"   " Shortcut to hide status line
 nmap <leader>ss :set laststatus=2<CR>"   " Shortcut to show status line
 let g:airline_powerline_fonts=0
 set laststatus=2
-set statusline=%-2{StatusMode()}     " current editor mode
 
 " -------------------------------------
 " Formatting
@@ -130,6 +131,27 @@ endif
 if has('autocmd')
   autocmd InsertLeave * set nopaste
 endif
-nmap <leader>c "+y
-nmap <leader>p "+p<CR> "Paste clipboard content to current line
 
+"vnoremap <leader>c "+y
+"nmap <leader>p "+p<CR> "Paste clipboard content to current line
+
+" Moving lines up and down in normal, insert and visual mode
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+
+
+" Optimize navigation and often used commands
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+"remap escape 
+nnoremap <leader><leader> <c-^>
+
+nnoremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
+nnoremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>

@@ -28,3 +28,6 @@
 [submodule "home/.vim/bundle/vim-rspec"]
 	path = home/.vim/bundle/vim-rspec
 	url = git@github.com:thoughtbot/vim-rspec.git
+[submodule "home/.vim/bundle/vim-coffee-script"]
+	path = home/.vim/bundle/vim-coffee-script
+	url = git@github.com:kchmck/vim-coffee-script.git
