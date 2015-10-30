@@ -24,6 +24,10 @@ export CLICOLOR=1 # Enable coloured output from ls, etc
 autoload -Uz compinit
 compinit
 
+function setjvm {
+ export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+}
+
 # RVM
 #-------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 

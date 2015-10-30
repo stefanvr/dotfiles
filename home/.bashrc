@@ -28,10 +28,12 @@ alias gw='git whatchanged --oneline'
 alias gd='git diff'
 alias gmc='git ls-files --unmerged | cut -f2 | uniq' # git merge conflicts
 
+alias gb='git branch'
 alias gbl='git branch -l'
 alias gbr='git branch -r'
 alias gbp='git remote prune origin'
 alias gbco='git checkout -t'
+alias gbrd='git push origin --delete '
 
 alias gss='git stash save'
 alias gsl='git stash list'
@@ -41,7 +43,7 @@ alias gsd='git stash drop'
 
 alias gp='git push'
 alias push='git push'
-alias pull='git pull'
+alias pull='git pull --rebase'
 alias gpom='git push origin master'
 alias gf='git fetch'
 alias gfom='git fetch origin master'
@@ -62,6 +64,16 @@ function gg() {
     git commit -v -a -m "$*"
 }
 
+function f() {
+    find . -name "$*"
+}
+
+
+alias be='bundle exec'
+
+alias mci='mvn clean install'
+alias mcp='mvn clean install -DskipTests'
+
 # vagrant
 # ---------------------------------------------------------------------------------------
 alias vu='vagrant up'
@@ -74,3 +86,24 @@ alias vboxr='vagrant box remove'
 
 alias vv='vu && vs'
 alias vr='vboxd && vu && vs'
+
+# postgres
+# ---------------------------------------------------------------------------------------
+alias pgs='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgr='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart -m fast'
+alias pgx='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
+alias pgi='initdb /usr/local/var/postgres -E utf8'
+
+# docker
+#$(boot2docker shellinit)
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:/Users/stefanvr/Kabisa/android/android-sdk-macosx/tools:/Users/stefanvr/Kabisa/android/android-sdk-macosx/platform-tools:$PATH"
+
+#elixir
+export PATH="$PATH:/path/to/elixir/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/Applications/IntelliJ IDEA 14 CE.app/Contents/plugins/maven/lib/maven2/bin"
+
+#if which jenv > /dev/null; then eval "$(jenv init -)"; fi
