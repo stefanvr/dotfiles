@@ -59,6 +59,8 @@ alias gaf='git add'
 alias gam='git commit --amend'
 alias gcm='git commit -m'
 alias gca='git commit -va -m'
+
+alias gclean='git branch --merged | grep -v master | grep -v '^\*' | cut -d " " -f3 | xargs git branch -d'
 # Commit pending changes and quote all args as message
 function gg() {
     git commit -v -a -m "$*"
